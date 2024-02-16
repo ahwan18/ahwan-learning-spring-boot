@@ -20,5 +20,14 @@ public class DuplicateTest {
         });
     }
 
+    @Test
+    void getBean() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(DuplicateConfiguration.class);
+
+        Foo foo1 = context.getBean("foo1", Foo.class);
+        Foo foo2 = context.getBean("foo2", Foo.class);
+
+        Assertions.assertNotSame(foo1, foo2);
+    }
     
 }
