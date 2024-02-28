@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.learning.springboot.learningspringboot.repository.ProductRepository;
 import com.learning.springboot.learningspringboot.service.ProductService;
 
 public class ComponentTest {
@@ -17,7 +18,14 @@ public class ComponentTest {
         ProductService productService1 = applicationContext.getBean(ProductService.class);
         ProductService productService2 = applicationContext.getBean("productService", ProductService.class);
 
-        Assertions.assertNotSame(productService1, productService2);
+        Assertions.assertSame(productService1, productService2);
+    }
+
+    void testConstructorDI(){
+        ProductService productService = applicationContext.getBean(ProductService.class);
+        ProductRepository productRepository = applicationContext.getBean(ProductRepository.class);
+
+        Assertions.assertSame(productService.getProductRepository(), productRepository);
     }
 
     @BeforeEach
