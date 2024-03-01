@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.learning.springboot.learningspringboot.data.MultiFoo;
 import com.learning.springboot.learningspringboot.repository.CategoryRepository;
 import com.learning.springboot.learningspringboot.repository.CustomerRepository;
 import com.learning.springboot.learningspringboot.repository.ProductRepository;
@@ -48,6 +49,14 @@ public class ComponentTest {
 
         Assertions.assertSame(customerService.getNormalCustomerRepository(), normalCustomerRepository);
         Assertions.assertSame(customerService.getPremiumCustomerRepository(), premiumCustomerRepository);
+    }
+
+    
+
+    @Test
+    void testObjectProvider() {
+        MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+        Assertions.assertEquals(3, multiFoo.getFoos().size());
     }
 
     @BeforeEach
