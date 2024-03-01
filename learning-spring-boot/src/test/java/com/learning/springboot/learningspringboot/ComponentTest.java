@@ -7,8 +7,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.learning.springboot.learningspringboot.repository.CategoryRepository;
+import com.learning.springboot.learningspringboot.repository.CustomerRepository;
 import com.learning.springboot.learningspringboot.repository.ProductRepository;
 import com.learning.springboot.learningspringboot.service.CategoryService;
+import com.learning.springboot.learningspringboot.service.CustomerService;
 import com.learning.springboot.learningspringboot.service.ProductService;
 
 public class ComponentTest {
@@ -30,14 +32,22 @@ public class ComponentTest {
         Assertions.assertSame(productService.getProductRepository(), productRepository);
     }
 
-    
-
     @Test
     void testSetterDI() {
         CategoryService categoryService = applicationContext.getBean(CategoryService.class);
         CategoryRepository categoryRepository = applicationContext.getBean(CategoryRepository.class);
 
         Assertions.assertSame(categoryService.getCategoryRepository(), categoryRepository);
+    }
+
+    @Test
+    void testFieldDI() {
+        CustomerService customerService = applicationContext.getBean(CustomerService.class);
+        CustomerRepository normalCustomerRepository = applicationContext.getBean("normalCustomerRepository",CustomerRepository.class);
+        CustomerRepository premiumCustomerRepository = applicationContext.getBean("premiumCustomerRepository",CustomerRepository.class);
+
+        Assertions.assertSame(customerService.getNormalCustomerRepository(), normalCustomerRepository);
+        Assertions.assertSame(customerService.getPremiumCustomerRepository(), premiumCustomerRepository);
     }
 
     @BeforeEach
