@@ -1,0 +1,18 @@
+package com.learning.springboot.learningspringboot.listener;
+
+import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
+
+import com.learning.springboot.learningspringboot.event.LoginSuccesEvent;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+public class LoginSuccessAgainListener implements ApplicationListener<LoginSuccesEvent>{
+
+    @Override
+    public void onApplicationEvent(LoginSuccesEvent event) {
+        log.info("Success Login Again for User{}", event.getUser());  
+    }
+}
