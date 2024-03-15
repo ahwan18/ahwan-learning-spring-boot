@@ -1,4 +1,4 @@
-package com.learning.springboot.learningspringboot;
+package com.learning.springboot.learningspringboot.application;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.learning.springboot.learningspringboot.data.Bar;
 import com.learning.springboot.learningspringboot.data.Foo;
 
 @SpringBootApplication
