@@ -27,7 +27,7 @@ public class UserService implements ApplicationEventPublisherAware{
     }
 
     public boolean isLoginSuccess(String username, String password){
-        return "eko".equals(username) && "eko".equals(password);
+        return "ahmad".equals(username) && "kurniawan".equals(password);
         
     }
 
