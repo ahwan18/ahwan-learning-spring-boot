@@ -12,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication
 public class CommandApplication{
 
-    public static void main(String[] args) {
-        SpringApplication.run(CommandApplication.class, args);
-    }
+    // public static void main(String[] args) {
+    //     SpringApplication.run(CommandApplication.class, args);
+    // }
 
     @Slf4j
     @Component

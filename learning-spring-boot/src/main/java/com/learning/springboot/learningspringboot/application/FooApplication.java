@@ -26,14 +26,14 @@ public class FooApplication {
     //     System.out.println(foo);
     // }
 
-    public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(FooApplication.class);
-        application.setBannerMode(Banner.Mode.OFF);
-        application.setListeners(List.of(new AppStartingListener()));
+    // public static void main(String[] args) {
+    //     SpringApplication application = new SpringApplication(FooApplication.class);
+    //     application.setBannerMode(Banner.Mode.OFF);
+    //     application.setListeners(List.of(new AppStartingListener()));
 
-        ConfigurableApplicationContext applicationContext = application.run(args);
+    //     ConfigurableApplicationContext applicationContext = application.run(args);
 
-        Foo foo = applicationContext.getBean(Foo.class);
-        System.out.println(foo);
-    }
+    //     Foo foo = applicationContext.getBean(Foo.class);
+    //     System.out.println(foo);
+    // }
 }
